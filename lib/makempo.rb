@@ -1,8 +1,8 @@
-require "mpo/version"
+require "makempo/version"
 
-module Mpo
-  require "mpo/app2"
-  require "mpo/jpeg"
+module Makempo
+  require "makempo/app2"
+  require "makempo/jpeg"
 
   module_function
   def from_files(left_path, right_path)

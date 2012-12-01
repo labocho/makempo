@@ -145,14 +145,3 @@ class App2ForIndivisualImage < BinData::Record
 
   mp_attributes_ifd_for_indivisual_image :mp_attributes_ifd
 end
-
-# app2 = App2.new
-# app2.mp_index_ifd.indivisual_image_size_1 = 0
-# app2.mp_index_ifd.indivisual_image_size_2 = 0
-# app2.mp_index_ifd.indivisual_image_data_offset_2 = 0
-
-# open("app2.bin", "w"){|f| f.write app2.to_binary_s }
-
-# app2i = App2ForIndivisualImage.new
-
-# open("app2i.bin", "w"){|f| f.write app2i.to_binary_s }

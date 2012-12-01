@@ -1,6 +1,6 @@
 require "stringio"
-require "debugger"
-module Mpo
+
+module Makempo
   class Jpeg
     SOI = "\xFF\xD8" # Start Of Image
     SOS = "\xFF\xDA" # Start of Scan
@@ -18,7 +18,7 @@ module Mpo
       end
 
       def inspect
-        "<Mpo::Jpeg::Segment marker: #{marker.dump} length: #{length}>"
+        "<Makempo::Jpeg::Segment marker: #{marker.dump} length: #{length}>"
       end
     end
 
