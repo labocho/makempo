@@ -4,8 +4,8 @@ require File.expand_path('../lib/makempo/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["labocho"]
   gem.email         = ["labocho@penguinlab.jp"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Make MPO file from 2 jpegs}
+  gem.summary       = %q{Make MPO file from 2 jpegs}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)

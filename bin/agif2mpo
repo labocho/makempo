@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require "makempo"
+require "shellwords"
+require "tmpdir"
+require "fileutils"
+
+unless system "which convert"
+  STDERR.puts "Please install ImageMagick"
+  exit 1
+end
+
+dir = Dir.mktmpdir
+agif, out = ARGV
+
+# agif.gif -> splitted.gif.0 splitted.gif.1
+system "convert +adjoin #{agif.shellescape} #{File.join(dir, "splitted.gif").shellescape}"
+
+# splitted.gif.0 -> l.gif
+# splitted.gif.1 -> r.gif
+lgif = File.join(dir, "splitted-0.gif")
+rgif = File.join(dir, "splitted-1.gif")
+
+# l.gif -> l.jpg
+# r.gif -> r.jpg
+ljpg = File.join(dir, "l.jpg")
+rjpg = File.join(dir, "r.jpg")
+system Shellwords.join(["convert", lgif, ljpg])
+system Shellwords.join(["convert", rgif, rjpg])
+
+# l.jpg, r.jpg -> out.mpo
+mpo = Makempo.from_files(ljpg, rjpg)
+open(out, "w"){|f| f.write mpo}
