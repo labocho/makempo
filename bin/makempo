@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require "makempo"
+left, right, out = ARGV
+
+unless left && right
+  puts "#{$PROGRAM_NAME} left-image right-image [output]"
+  exit 1
+end
+
+unless (!STDOUT.tty? || out)
+  puts "Please pipe or redirect output, or specify output file path as 3rd argument"
+  exit 1
+end
+
+mpo = Makempo.from_files(left, right)
+if out
+  open(out, "w"){|f| f.write mpo}
+else
+  STDOUT.write mpo
+end
