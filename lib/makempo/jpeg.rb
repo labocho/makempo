@@ -2,13 +2,13 @@ require "stringio"
 
 module Makempo
   class Jpeg
-    SOI = "\xFF\xD8" # Start Of Image
-    SOS = "\xFF\xDA" # Start of Scan
-    EOI = "\xFF\xD9" # End Of Image
+    SOI = "\xFF\xD8".force_encoding(Encoding::ASCII_8BIT) # Start Of Image
+    SOS = "\xFF\xDA".force_encoding(Encoding::ASCII_8BIT) # Start of Scan
+    EOI = "\xFF\xD9".force_encoding(Encoding::ASCII_8BIT) # End Of Image
 
-    APP0 = "\xFF\xE0" # JFIF
-    APP1 = "\xFF\xE1" # Exif
-    APP2 = "\xFF\xE2" # MPO
+    APP0 = "\xFF\xE0".force_encoding(Encoding::ASCII_8BIT) # JFIF
+    APP1 = "\xFF\xE1".force_encoding(Encoding::ASCII_8BIT) # Exif
+    APP2 = "\xFF\xE2".force_encoding(Encoding::ASCII_8BIT) # MPO
 
     class FormatError < StandardError; end
     class Segment
